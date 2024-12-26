@@ -15,10 +15,8 @@ class CommandConstantsServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->runningInConsole()) {
-            
-            $this->commands([
-                CommandConstants::class,
-            ]);
+            $this->commands([CommandConstants::class]);
+            \Log::info('Command Constants command registered.');
         }
     }
 

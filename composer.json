@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "lrc\\": "src/"
+            "LRC\\": "src/"
         }
     },
     "require": {
