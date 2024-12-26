@@ -17,7 +17,7 @@ class CommandConstantsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             
             $this->commands([
-                SetupCommand::class,
+                CommandConstants::class,
             ]);
         }
     }
