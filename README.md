@@ -61,10 +61,13 @@ class CreateUsersTable extends Migration
 {
     public function up()
     {
-        Schema::create(User::TABLE_NAME, function (Blueprint $table) {
-            $table->id(User::COL_ID);
-            $table->string(User::COL_NAME);
-            $table->string(User::COL_EMAIL)->unique();
+            Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+          
+            $table->foreignId('family_id')
+            ->nullable()
+            ->constrained(Family::TABLE_NAME);
             $table->timestamps();
         });
     }
