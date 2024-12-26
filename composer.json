@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-           "LRC\\": ["src/"] 
+            "lrc\\": "lrc/src/"
         }
     },
     "require": {
@@ -27,8 +27,14 @@
         "phpunit/phpunit": "^9.5"
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
-   
+    "prefer-stable": true,
   
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Lrc": "Adev\\Lrc\\Providers\\LRCServiceProvider"
+            }
+        }
+    }
  
 }

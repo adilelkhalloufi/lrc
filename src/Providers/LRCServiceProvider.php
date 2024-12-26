@@ -5,7 +5,7 @@ namespace LRC\Providers;
 use Illuminate\Support\ServiceProvider;
 use LRC\Console\CommandConstants;
 
-class CommandConstantsServiceProvider extends ServiceProvider
+class LRCServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
