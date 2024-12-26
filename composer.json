@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "lrc\\LRCServiceProvider"
+                "lrc\\Providers\\LRCServiceProvider"
             ]
         }
     }
