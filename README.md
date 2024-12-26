@@ -208,8 +208,7 @@ GitHub: https://github.com/adilelkhalloufi
 # Donations
 If you want to support the development of this project, you can make a donation via the following options:
  
-[PayPal]: (https://www.paypal.com/donate/?hosted_button_id=2MDDDBX75Z3UQ)
-
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=2MDDDBX75Z3UQ)
 Any donation is appreciated and will go toward improving this project.
 
 Contributing
