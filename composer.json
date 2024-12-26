@@ -19,14 +19,15 @@
             "email": "adilelkhalloufi@gmail.com"
         }
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
 
     "require": {
         "php": ">=7.4",
         "illuminate/support": "^8.0|^9.0|^10.0"
-    }
-
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
  
  
 }
