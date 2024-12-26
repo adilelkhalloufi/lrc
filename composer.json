@@ -1,5 +1,5 @@
 {
-    "name": "adilelkhalloufi/lrc",
+    "name": "adev/lrc",
     "description": "A package to generate column constants for Laravel models",
     "license": "MIT",
     "homepage": "https://adev.ma/",
@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "lrc\\": "src/"
+            "lrc\\": "lrc/src/"
         }
     },
     "require": {
