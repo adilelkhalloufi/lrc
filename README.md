@@ -10,7 +10,7 @@ Easy to use in migrations, controllers, and other parts of your application.
 You can install the package via Composer. Run the following command in your Laravel project:
 
 ```bash
-composer require lrc/laravel-column-constants
+composer require adev/lrc
 ```
 
 Once installed, the package will automatically register the Artisan command.
