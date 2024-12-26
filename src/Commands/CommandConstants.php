@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace LRC\Console;  
+namespace Lrc\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
