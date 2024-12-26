@@ -14,11 +14,7 @@
             "email": "adilelkhalloufi@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "lrc\\": "lrc/src/"
-        }
-    },
+  
     "require": {
         "php": ">=7.4"
          
@@ -28,13 +24,17 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-  
+    "autoload": {
+        "psr-4": {
+             "Lrc\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
-            "aliases": {
-                "Lrc": "Adev\\Lrc\\Providers\\LRCServiceProvider"
-            }
+            "providers": [
+                "Lrc\\LRCServiceProvider"
+            ]
         }
-    }
+    },
  
 }
