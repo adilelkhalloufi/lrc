@@ -6,11 +6,9 @@
             "lrc\\": "src/"
         }
     },
-    
     "keywords": [
         "columns",
         "constants"
-
     ],
     "license": "MIT",
     "authors": [
@@ -21,15 +19,16 @@
     ],
     "version": "1.0.1",
     "type": "library",
-
     "require": {
         "php": ">=7.4",
-        "illuminate/support": "^8.0|^9.0|^10.0",
-        "adev/lrc": "dev-main"
-
+        "illuminate/support": "^8.0|^9.0|^10.0"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
- 
- 
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adilelkhalloufi/lrc"
+        }
+    ]
 }
