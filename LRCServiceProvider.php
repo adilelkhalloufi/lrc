@@ -14,9 +14,12 @@ class CommandConstantsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands([
-            CommandConstants::class,
-        ]);
+        if ($this->app->runningInConsole()) {
+            
+            $this->commands([
+                SetupCommand::class,
+            ]);
+        }
     }
 
     /**

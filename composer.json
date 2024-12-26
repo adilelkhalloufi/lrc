@@ -1,41 +1,33 @@
 {
-    "name": "adev/lrc",
+    "name": "adilelkhalloufi/lrc",
     "description": "A package to generate column constants for Laravel models",
-    "autoload": {
-        "psr-4": {
-            "lrc\\": "src/"
-        }
-    },
+    "license": "MIT",
+    "homepage": "https://adev.ma/",
+    "type": "library",
     "keywords": [
         "columns",
         "constants"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "adil elkhalloufi",
             "email": "adilelkhalloufi@gmail.com"
         }
     ],
-    "version": "1.0.1",
-    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "lrc\\": "src/"
+        }
+    },
     "require": {
         "php": ">=7.4",
-         "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0",
-        "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0"
-    },
+         "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0"
+     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
     },
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\Console\\Kernel::class"
-        ]
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/adilelkhalloufi/lrc"
-        }
-    ]
+    "minimum-stability": "stable",
+    "prefer-stable": true
+  
+ 
 }
