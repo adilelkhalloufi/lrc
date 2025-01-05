@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Lrc;
 
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +18,6 @@ class LRCServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([CommandConstants::class]);
-            \Log::info('*************************** Command Constants command registered.');
         }
     }
 

@@ -20,6 +20,10 @@ class CommandConstants extends Command
         $isFillable = $this->option('fillable');
         $isDelete = $this->option('delete');
 
+        \Log::info('Package LRC :  ' . $isDelete);
+        \Log::info('Package LRC :  ' . $modelName);
+        \Log::info('Package LRC :  ' . $isFillable);
+        
         if ($isDelete) {
             if ($modelName === 'all') {
                 $this->deleteAllModelsConstants();
