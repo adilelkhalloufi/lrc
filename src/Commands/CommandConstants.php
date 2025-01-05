@@ -20,10 +20,6 @@ class CommandConstants extends Command
         $isFillable = $this->option('fillable');
         $isDelete = $this->option('delete');
 
-        \Log::info('Package LRC :  ' . $isDelete);
-        \Log::info('Package LRC :  ' . $modelName);
-        \Log::info('Package LRC :  ' . $isFillable);
-        
         if ($isDelete) {
             if ($modelName === 'all') {
                 $this->deleteAllModelsConstants();
@@ -54,7 +50,13 @@ class CommandConstants extends Command
 
         foreach ($modelFiles as $file) {
             $modelName = pathinfo($file, PATHINFO_FILENAME);
-            $this->processModel($modelName, $isFillable);
+
+            try {
+                $this->processModel($modelName, $isFillable);
+            } catch (\Exception $e) {
+                $this->error("Error processing model {$modelName}: " . $e->getMessage());
+                continue; // Skip to the next model
+            }
         }
 
         $this->info('Column constants and TABLE_NAME generated for all models.');
@@ -65,15 +67,23 @@ class CommandConstants extends Command
         $modelClass = "App\\Models\\{$modelName}";
 
         if (!class_exists($modelClass)) {
-            $this->error("Model {$modelName} does not exist.");
-            return;
+            throw new \Exception("Model {$modelName} does not exist.");
         }
 
         $model = new $modelClass;
         $table = $model->getTable();
+
+        if (!Schema::hasTable($table)) {
+            throw new \Exception("Table {$table} does not exist for model {$modelName}.");
+        }
+
         $columns = Schema::getColumnListing($table);
 
-        $constants = "    public const TABLE_NAME = '{$table}';\n\n";
+        if (empty($columns)) {
+            throw new \Exception("No columns found for table {$table}.");
+        }
+
+        $constants = " \n\n   public const TABLE_NAME = '{$table}';\n\n";
         foreach ($columns as $column) {
             $constantName = strtoupper('COL_' . $column);
             $constants .= "    public const {$constantName} = '{$column}';\n";
@@ -92,14 +102,12 @@ class CommandConstants extends Command
 
         $classPosition = strpos($content, 'class ' . $modelName);
         if ($classPosition === false) {
-            $this->error("Could not find the class {$modelName} in the file.");
-            return;
+            throw new \Exception("Could not find the class {$modelName} in the file.");
         }
 
         $bracePosition = strpos($content, '{', $classPosition);
         if ($bracePosition === false) {
-            $this->error("Could not find the opening brace for the class {$modelName}.");
-            return;
+            throw new \Exception("Could not find the opening brace for the class {$modelName}.");
         }
 
         // Check if constants or fillable already exist
@@ -126,7 +134,13 @@ class CommandConstants extends Command
 
         foreach ($modelFiles as $file) {
             $modelName = pathinfo($file, PATHINFO_FILENAME);
-            $this->deleteConstants($modelName);
+
+            try {
+                $this->deleteConstants($modelName);
+            } catch (\Exception $e) {
+                $this->error("Error deleting constants for model {$modelName}: " . $e->getMessage());
+                continue; // Skip to the next model
+            }
         }
 
         $this->info('Column constants and TABLE_NAME deleted for all models.');
@@ -137,8 +151,7 @@ class CommandConstants extends Command
         $modelClass = "App\\Models\\{$modelName}";
 
         if (!class_exists($modelClass)) {
-            $this->error("Model {$modelName} does not exist.");
-            return;
+            throw new \Exception("Model {$modelName} does not exist.");
         }
 
         $modelPath = app_path("Models/{$modelName}.php");
