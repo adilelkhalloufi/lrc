@@ -13,7 +13,7 @@ Easy to use in migrations, controllers, and other parts of your application.
 You can install the package via Composer. Run the following command in your Laravel project:
 
 ```bash
-composer require adev/lrc:dev-main
+composer require adev/lrc
 ```
 
 Once installed, the package will automatically register the Artisan command.
@@ -76,8 +76,8 @@ For example, to delete constants for the User model:
 ```bash
 php artisan make:constants User --delete
 ```
-To delete constants for all models, use:
 
+To delete constants for all models, use:
 
 ```bash
 php artisan make:constants all --delete
@@ -113,7 +113,7 @@ class CreateUsersTable extends Migration
        Schema::dropIfExists(User::TABLE_NAME);
    }
 }
-````
+```
 
 ## 2. In Controllers
 
