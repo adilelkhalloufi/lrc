@@ -12,7 +12,7 @@ class CommandConstants extends Command
 {
     protected $signature = 'make:constants {model?} {--fillable} {--delete}';
 
-    protected $description = 'Generate column constants for a given model based on its table schema';
+    protected $description = 'Generate column constants for a given model based on its table schema. Use --delete to remove constants.';
 
     public function handle()
     {
@@ -150,7 +150,4 @@ class CommandConstants extends Command
 
         $this->info("Column constants and TABLE_NAME deleted successfully for {$modelName}.");
     }
-
-    // clear
-
 }
