@@ -92,7 +92,7 @@ class CommandConstants extends Command
         $fillable = '';
         if ($isFillable) {
             $fillableColumns = array_map(function ($column) {
-                return strtoupper('self::COL_' . $column);
+                return "\n self::COL_" . strtoupper($column);
             }, $columns);
             $fillable = "    public \$fillable = [" . implode(', ', $fillableColumns) . "];\n\n";
         }
